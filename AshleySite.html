@@ -406,13 +406,14 @@ function collision($Ashley1, $Jeremy) {
 window.setInterval(function() {
 	if ((collision($('#Jeremy'), $('#Ashley1')))){
 	var elem = document.getElementById("Jeremy");
-	var Jeremy2 = document.createElement('div');
+	var Jeremy2 = document.createElement('img');
 	var JeremyLeft = parseInt(document.getElementById('Jeremy').style.left.replace('px',""));
 	var AshleyLeft = parseInt(document.getElementById('Ashley1').style.left.replace('px',""));
 	var JeremyTop = parseInt(document.getElementById('Jeremy').style.top.replace('px',""));
-	var AshleyTop = parseInt(document.getElementById('Ashley1').style.top.replace('px',""))
+	var AshleyTop = parseInt(document.getElementById('Ashley1').style.top.replace('px',""));
+	var PicSelect = (Math.floor(Math.random()*3));
 	Jeremy2.className="kisses";
-	Jeremy2.style.background='lightgreen';
+	Jeremy2.src="https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/red-heart.png";
 	Jeremy2.style.position="absolute";
 	Jeremy2.style.width="200px";
 	Jeremy2.style.height="200px";
