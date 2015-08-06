@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Jeremy Frank</title>
+	<!--Fonts and style sheet-->
+	<link rel="stylesheet" type="text/css" href="script.css">
+	<link href="http://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+	<!--Fonts and style sheet-->
+	<!--Links required for carousel-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!--Links required for carousel-->
+	<style>
+.mainDiv{
+	width:50%;
+	height:100%;
+	margin-left:25%;
+	border:3px solid black;
+	box-shadow: 10px 10px 5px #888888;
+	z-index:5000;
+	background-color: white;
+}
+
+.mainDiv h1{
+	text-align:center;
+	font-size:50px;
+	font: 400 100px/1.3 'Arizonia', Helvetica, sans-serif;
+  	color: #2b2b2b;
+  	text-shadow: 4px 4px 0px rgba(0,0,0,0.1); 
+  	margin-top:10px;
+}
+
+.mainDiv img{
+	width:100%;
+}
+
+.carousel-caption{
+	background-color: rgba(1,0,0,.5);
+}
+
+#background{
+	z-index:-5000;
+	display:inline;
+	position:fixed;
+	opacity:.4;
+}
+
+.ILoveYou{
+	width:50px;
+	height:50px;
+}
+
+.LovePicture{
+	position:absolute;
+	margin-top:5px;
+	margin-left:10px;
+
+}
+
+#Ashley{
+	cursor:pointer;
+}
+
+#clearCarousel{
+	position:absolute;
+	height:50px;
+	width:50px;
+	left:4px;
+	top:4px;
+	background-color:red;
+}
+
+	</style>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="script.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<div id="background">
+	<img src="backgroundImage.jpg">
+</div>
+<div id="clearCarousel">
+</div>
+<div class="ILoveYou" data-love="1">
+</div>
+<div class="ILoveYou" data-love="2">
+</div>
+<div class="mainDiv">
+<h1 id="Ashley" title="Clear Pictures">Ashley is a cutie!</h1>
+<div id="carousel" class="carousel slide" data-interval="5000">
+<!--Carousel indicators-->
+<ol class="carousel-indicators">
+	<li data-target="carousel" data-slide-to="1" class="active"></li>
+	<li data-target="carousel" data-slide-to="2"></li>
+	<li data-target="carousel" data-slide-to="3"></li>
+</ol>
+<!--Carousel indicators-->
+<!--Carousel Images-->
+
+
+<div class="carousel-inner">
+
+	<div class="item active">
+		<img src="city3.jpg">
+		<div class="carousel-caption">
+			<h3>A beautiful city</h3>
+				<p>It is somewhere</p>
+		</div>
+	</div>
+	<div class="item">
+		<img src="city2.jpg">
+		<div class="carousel-caption">
+			<h3>Another beautiful city</h3>
+				<p>It is somewhere else!</p>
+		</div>
+	</div>
+	<div class="item">
+		<img src="city1.jpg">
+		<div class="carousel-caption">
+			<h3>Yet another beautiful city</h3>
+				<p>I'm not sure if it's somewhere....</p>
+		</div>
+	</div>
+</div>
+<!--Carousel Images-->
+<!--Carousel Navigation-->
+	<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
+<!--Carousel Navigation-->
+</div>
+</div>
+<!--Carousel Functionality-->
+<script type="text/javascript">
+$("#clearCarousel").click(function(){
+	var CarouselLeft = parseInt(document.getElementById('carousel').style.left.replace('px',""));
+	var PictureLeft = parseInt($("LovePicture").left);
+	if(CarouselLeft < PictureLeft){
+	$(".LovePicture").remove();
+}})
+		var LoveDiv = document.createElement("div");
+			LoveDiv.className="character";
+			
+
+    $(document).ready(function(){
+        $('.carousel').carousel();
+    });
+
+    $(document).ready(function(){
+    	$('#carousel').on('slide.bs.carousel', function(){
+    		console.log("sliding instruction received!");
+
+    	});
+    	$('#carousel').on('slid.bs.carousel',function(){
+    		console.log("sliding over!");
+    		var rand = (Math.floor(Math.random()*1)+1);
+    		var PicSelect = (Math.floor(Math.random()*3));
+    		var randX = (Math.floor(Math.random()*1750)+1);
+    		var randY = (Math.floor(Math.random()*900)+1);
+    		console.log(rand);
+    		if($(".ILoveYou").attr("data-love") == rand){
+    			var LoveDiv = document.createElement("img");
+    			LoveDiv.className="LovePicture";
+    			LoveDiv.setAttribute("src",CutePictures[PicSelect]);
+    			LoveDiv.setAttribute("width","200px");
+    			LoveDiv.setAttribute("height","200px");
+    			LoveDiv.setAttribute("alt","I love you");
+    			LoveDiv.setAttribute("title","I love you");
+    			LoveDiv.setAttribute("position","absolute");
+    			LoveDiv.setAttribute("z-index","10,000");
+    			LoveDiv.setAttribute("margin-right","200px");
+    			LoveDiv.style.left=randX+"px";
+    			LoveDiv.style.top=randY+"px";
+    			document.body.appendChild(LoveDiv);
+    		};
+    	});
+    });
+
+var CutePictures=["cute_marshmallows_by_lieveheersbeestje-d4oaqof.jpg","Cute-cat-in-the-world.jpg","cute-quotes-for-him.jpg"];
+// DRAG AND DROP
+var dragndrop = (function() {
+var myX = '';
+var myY = '';
+var whichArt = '';
+var swag = false;
+
+function resetZ() {
+var elements = document.querySelectorAll('img');
+for (var i = elements.length - 1; i >= 0; i--) {
+elements[i].style.zIndex = 5;
+};
+}
+
+function moveStart(e) {
+whichArt = e.target;
+myX = e.offsetX === undefined ? e.layerX : e.offsetX;
+myY = e.offsetY === undefined ? e.layerY : e.offsetY;
+resetZ();
+whichArt.style.zIndex = 10;
+swag=true;
+}
+
+function moveDragOver(e) {
+e.preventDefault();
+}
+
+function moveDrop(e) {
+e.preventDefault();
+whichArt.style.left = e.pageX - myX + 'px';
+whichArt.style.top = e.pageY - myY + 'px';
+}
+
+document.querySelector('body').addEventListener('dragstart', moveStart, false);
+document.querySelector('body').addEventListener('dragover', moveDragOver, false);
+document.querySelector('body').addEventListener('drop', moveDrop, false);
+})(); 
+//DRAG AND DROP
+
+$("#Ashley").on("click",function(){
+	$(".LovePicture").remove();
+});
+
+$(document).ready(function(){
+	AshleysDiv();
+	JeremysDiv();
+	collision($('#Ashley1'),$('#Jeremy'));
+});
+
+function JeremysDiv(){
+	var Jeremy = document.createElement('div');
+	Jeremy.id="Jeremy";
+	Jeremy.innerHTML+="Jeremy";
+	Jeremy.style.background='yellow';
+	Jeremy.style.width="200px";
+	Jeremy.style.height="200px";
+	Jeremy.setAttribute("alt","I love you");
+	Jeremy.style.position="absolute";
+	Jeremy.style.zIndex="10000";
+	Jeremy.style.left='0'+"px";
+	Jeremy.style.top='0'+"px";
+	document.body.appendChild(Jeremy);
+	
+	
+	var p1 = document.getElementById('Jeremy'),
+	keyCodes = { left: 65, up: 87, right: 68, down: 83 },
+	keys = [];
+	
+	window.addEventListener('keydown', function (evt) {
+	    keys[evt.keyCode] = true;
+	});
+	
+	window.addEventListener('keyup', function (evt) {
+	    keys[evt.keyCode] = false;
+	});
+	
+	setInterval(function () {
+	
+	    // get position of div
+	    var x = parseInt(p1.style.left, 10),
+	        y = parseInt(p1.style.top, 10);
+	
+	    // update position
+	    // left/right
+	    if (keys[keyCodes.left]) {
+	        x -= 1;
+	    } else if (keys[keyCodes.right]) {
+	        x += 1;
+	    }
+	    // up/down
+	    if (keys[keyCodes.up]) {
+	        y -= 1;
+	    } else if (keys[keyCodes.down]) {
+	        y += 1;
+	    }
+	
+	    // set div position
+	    p1.style.left = x + 'px';
+	    p1.style.top = y + 'px';
+	
+	   }, 1/30);
+};
+
+function AshleysDiv(){
+	var Ashley1 = document.createElement('div');
+	Ashley1.id="Ashley1";
+	Ashley1.innerHTML="Ashley";
+	Ashley1.style.background='skyblue';
+	Ashley1.style.width="200px";
+	Ashley1.style.height="200px";
+	Ashley1.setAttribute("alt","I love you");
+	Ashley1.style.position="absolute";
+	Ashley1.style.zIndex="10000";
+	Ashley1.style.left='300'+"px";
+	Ashley1.style.top='0'+"px";
+	document.body.appendChild(Ashley1);
+	
+	
+	var p1 = document.getElementById('Ashley1'),
+	keyCodes = { left: 37, up: 38, right: 39, down: 40 },
+	keys = [];
+	
+	window.addEventListener('keydown', function (evt) {
+	    keys[evt.keyCode] = true;
+	});
+	
+	window.addEventListener('keyup', function (evt) {
+	    keys[evt.keyCode] = false;
+	});
+	
+	setInterval(function () {
+	
+	    // get position of div
+	    var x = parseInt(p1.style.left, 10),
+	        y = parseInt(p1.style.top, 10);
+	
+	    // update position
+	    // left/right
+	    if (keys[keyCodes.left]) {
+	        x -= 1;
+	    } else if (keys[keyCodes.right]) {
+	        x += 1;
+	    }
+	    // up/down
+	    if (keys[keyCodes.up]) {
+	        y -= 1;
+	    } else if (keys[keyCodes.down]) {
+	        y += 1;
+	    }
+	
+	    // set div position
+	    p1.style.left = x + 'px';
+	    p1.style.top = y + 'px';
+	
+	   }, 1/30);
+};
+
+function collision($Ashley1, $Jeremy) {
+      var x1 = $(Ashley1).offset().left;
+      var y1 = $(Ashley1).offset().top;
+      var h1 = $(Ashley1).outerHeight(true);
+      var w1 = $(Ashley1).outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $(Jeremy).offset().left;
+      var y2 = $(Jeremy).offset().top;
+      var h2 = $(Jeremy).outerHeight(true);
+      var w2 = $(Jeremy).outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+    }
+
+
+window.setInterval(function() {
+	if ((collision($('#Jeremy'), $('#Ashley1')))){
+	var elem = document.getElementById("Jeremy");
+	var Jeremy2 = document.createElement('div');
+	var JeremyLeft = parseInt(document.getElementById('Jeremy').style.left.replace('px',""));
+	var AshleyLeft = parseInt(document.getElementById('Ashley1').style.left.replace('px',""));
+	var JeremyTop = parseInt(document.getElementById('Jeremy').style.top.replace('px',""));
+	var AshleyTop = parseInt(document.getElementById('Ashley1').style.top.replace('px',""))
+	Jeremy2.className="kisses";
+	Jeremy2.style.background='lightgreen';
+	Jeremy2.style.position="absolute";
+	Jeremy2.style.width="200px";
+	Jeremy2.style.height="200px";
+	Jeremy2.style.zIndex="100000";
+	if(JeremyLeft<AshleyLeft){
+		Jeremy2.style.left=JeremyLeft+100+'px';
+	} else if(JeremyLeft>AshleyLeft) {
+		Jeremy2.style.left=AshleyLeft+100+'px';
+	};
+	if(JeremyTop>AshleyTop){
+		Jeremy2.style.top=JeremyTop-200+'px';
+	} else if(JeremyTop<AshleyTop) {
+		Jeremy2.style.top=AshleyTop-200+'px';
+	};
+	document.body.appendChild(Jeremy2);
+	}
+	 setTimeout(function() {
+        $(".kisses").fadeOut(1500,function(){
+        	$(this).remove();
+        });
+    },3000);
+	 
+},400);
+
+
+</script>
+<!--Carousel Functionality-->
+
+</body>
+</html>
