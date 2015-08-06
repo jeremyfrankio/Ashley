@@ -193,7 +193,7 @@
     	$('#carousel').on('slid.bs.carousel',function(){
     		console.log("sliding over!");
     		var rand = (Math.floor(Math.random()*1)+1);
-    		var PicSelect = (Math.floor(Math.random()*3));
+    		var PicSelect = (Math.floor(Math.random()*CutePictures.length));
     		var randX = (Math.floor(Math.random()*1750)+1);
     		var randY = (Math.floor(Math.random()*900)+1);
     		console.log(rand);
@@ -215,7 +215,7 @@
     	});
     });
 
-var CutePictures=["https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/1412924443.4921_MA9eLu_n.jpg","https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/images.jpg","https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/imgres2.jpg"];
+var CutePictures=["https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/1412924443.4921_MA9eLu_n.jpg","https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/imgres2.jpg","https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/Love1.jpg","https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/Love2.jpg","https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/Love3.jpg"];
 // DRAG AND DROP
 var dragndrop = (function() {
 var myX = '';
