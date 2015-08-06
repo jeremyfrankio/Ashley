@@ -64,13 +64,6 @@
 	cursor:pointer;
 }
 
-.FollowDiv{
-	width:40px;
-	height: 40px;
-	background: pink;
-	position:absolute;
-}
-
 	</style>
 </head>
 <body>
@@ -361,16 +354,6 @@ function AshleysDiv(){
 	    // left/right
 	    if (keys[keyCodes.left]) {
 	        x -= 1;
-	    var FollowDiv = document.createElement('div');
-	    FollowDiv.style.left = Ashley1.style.left;
-	    FollowDiv.style.top = Ashley1.style.top;
-	    FollowDiv.ClassName = FollowDiv;
-	    FollowDiv.style.width="40px";
-	    FollowDiv.style.height="40px";
-	    FollowDiv.style.background="Pink";
-	    FollowDiv.style.zIndex="10000";
-	    FollowDiv.style.position="absolute";
-	    document.body.appendChild(FollowDiv);
 	    } else if (keys[keyCodes.right]) {
 	        x += 1;
 	    }
@@ -383,8 +366,6 @@ function AshleysDiv(){
 	
 	    // set div position
 	    p1.style.left = x + 'px';
-
-
 	    p1.style.top = y + 'px';
 	
 	   }, 1/30);
