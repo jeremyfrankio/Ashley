@@ -64,13 +64,11 @@
 	cursor:pointer;
 }
 
-#clearCarousel{
+.FollowDiv{
+	width:40px;
+	height: 40px;
+	background: pink;
 	position:absolute;
-	height:50px;
-	width:50px;
-	left:4px;
-	top:4px;
-	background-color:red;
 }
 
 	</style>
@@ -82,8 +80,6 @@
 
 <div id="background">
 	<img src="https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/BackgroundImage.jpg">
-</div>
-<div id="clearCarousel">
 </div>
 <div class="ILoveYou" data-love="1">
 </div>
@@ -279,7 +275,7 @@ $(document).ready(function(){
 function JeremysDiv(){
 	var Jeremy = document.createElement('img');
 	Jeremy.id="Jeremy";
-	Jeremy.src="https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/JeremyFace.png";
+	Jeremy.src="https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/JeremyFace2.png";
 	Jeremy.style.width="200px";
 	Jeremy.style.height="200px";
 	Jeremy.setAttribute("alt","I love you");
@@ -332,8 +328,8 @@ function JeremysDiv(){
 function AshleysDiv(){
 	var Ashley1 = document.createElement('img');
 	Ashley1.id="Ashley1";
-	Ashley1.src="https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/AshleyFace.png";
-	Ashley1.style.width="200px";
+	Ashley1.src="https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/AshleyFace2.png";
+	Ashley1.style.width="100x";
 	Ashley1.style.height="200px";
 	Ashley1.setAttribute("alt","I love you");
 	Ashley1.style.position="absolute";
@@ -365,6 +361,16 @@ function AshleysDiv(){
 	    // left/right
 	    if (keys[keyCodes.left]) {
 	        x -= 1;
+	    var FollowDiv = document.createElement('div');
+	    FollowDiv.style.left = Ashley1.style.left;
+	    FollowDiv.style.top = Ashley1.style.top;
+	    FollowDiv.ClassName = FollowDiv;
+	    FollowDiv.style.width="40px";
+	    FollowDiv.style.height="40px";
+	    FollowDiv.style.background="Pink";
+	    FollowDiv.style.zIndex="10000";
+	    FollowDiv.style.position="absolute";
+	    document.body.appendChild(FollowDiv);
 	    } else if (keys[keyCodes.right]) {
 	        x += 1;
 	    }
@@ -377,6 +383,8 @@ function AshleysDiv(){
 	
 	    // set div position
 	    p1.style.left = x + 'px';
+
+
 	    p1.style.top = y + 'px';
 	
 	   }, 1/30);
@@ -418,9 +426,9 @@ window.setInterval(function() {
 	Jeremy2.style.height="200px";
 	Jeremy2.style.zIndex="100000";
 	if(JeremyLeft<AshleyLeft){
-		Jeremy2.style.left=JeremyLeft+100+'px';
+		Jeremy2.style.left=JeremyLeft+50+'px';
 	} else if(JeremyLeft>AshleyLeft) {
-		Jeremy2.style.left=AshleyLeft+100+'px';
+		Jeremy2.style.left=AshleyLeft+50+'px';
 	};
 	if(JeremyTop>AshleyTop){
 		Jeremy2.style.top=JeremyTop-200+'px';
