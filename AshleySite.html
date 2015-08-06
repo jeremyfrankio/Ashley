@@ -411,9 +411,10 @@ window.setInterval(function() {
 	var AshleyLeft = parseInt(document.getElementById('Ashley1').style.left.replace('px',""));
 	var JeremyTop = parseInt(document.getElementById('Jeremy').style.top.replace('px',""));
 	var AshleyTop = parseInt(document.getElementById('Ashley1').style.top.replace('px',""));
-	var PicSelect = (Math.floor(Math.random()*3));
+	var loves = ["https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/Heart_icon_red_hollow.svg.png","https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/red-heart.png","https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/pink-heart.png","https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/Red-clipart-love-heart.png"];
+	var PicSelect = (Math.floor(Math.random()*4));
 	Jeremy2.className="kisses";
-	Jeremy2.src="https://raw.githubusercontent.com/jeremyfrankio/Ashley/master/red-heart.png";
+	Jeremy2.src=loves[PicSelect];
 	Jeremy2.style.position="absolute";
 	Jeremy2.style.width="200px";
 	Jeremy2.style.height="200px";
